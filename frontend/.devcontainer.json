@@ -1,0 +1,16 @@
+{
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "frontend",
+    "workspaceFolder": "/frontend",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "extensions.verifySignature": false
+            },
+            "extensions": [
+                "svelte.svelte-vscode",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    }
+}

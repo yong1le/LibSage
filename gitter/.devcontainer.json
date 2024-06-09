@@ -1,0 +1,15 @@
+{
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "gitter",
+    "workspaceFolder": "/gitter",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "extensions.verifySignature": false
+            },
+            "extensions": [
+                "ms-python.python",
+            ]
+        }
+    }
+}
