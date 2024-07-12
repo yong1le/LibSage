@@ -1,9 +1,17 @@
-FROM node:22-slim AS build
+FROM node:22-slim AS base
 
-WORKDIR /frontend
+WORKDIR /app
+
 COPY package.json .
+
 RUN npm install
+
 COPY . .
 
-EXPOSE 5173
-CMD ["npm", "run", "dev"]
+FROM base AS build
+
+CMD ["npm", "start"]
+
+FROM base AS dev
+
+CMD ["npm", "run", "dev", "--",  "--port", "8080"]

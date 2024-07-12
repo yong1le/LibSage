@@ -1,20 +1,24 @@
 services:
   frontend:
-    build: ./frontend
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: dev
     ports: 
-      - 8080:5173
+      - 8080:8080
     environment:
-      - AUTH_SECRET=${AUTH_JS_SECRET}
-      - AUTH_GITHUB_ID=${AUTH_GITHUB_ID}
-      - AUTH_GITHUB_SECRET=${AUTH_GITHUB_SECRET}
+      - AUTH_SECRET=${AUTH_SECRET}
+      - AUTH_AUTH0_ID=${AUTH_AUTH0_ID}
+      - AUTH_AUTH0_SECRET=${AUTH_AUTH0_SECRET}
     volumes:
       - ./frontend:/frontend
       - /frontend/node_modules
 
-  gitter:
-    build: ./gitter
-    ports:
-      - 8081:8000
-    volumes:
-      - ./gitter:/gitter
-      - /gitter/__pycache__
+  # gitter:
+  #   build: ./gitter
+  #   ports:
+  #     - 8081:8000
+  #   volumes:
+  #     - ./gitter:/gitter
+  #     - /gitter/__pycache__
